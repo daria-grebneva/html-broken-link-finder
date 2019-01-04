@@ -14,6 +14,17 @@ public class Report {
         this.writer = new PrintWriter(new File(filename));
     }
 
+    public static List<Response> getBrokenLinks(List<String> pages) throws Exception {
+        List<Response> brokenLinks = new ArrayList<Response>();
+        LinksFinder linksFinder = new LinksFinder();
+        for (String page : pages) {
+            List<String> links = linksFinder.getLinks(page);
+            BrokenLinksFinder brokenLinksFinder = new BrokenLinksFinder(links);
+            brokenLinks.addAll(brokenLinksFinder.getBrokenLinks());
+        }
+        return brokenLinks;
+    }
+
     public void append(List<Response> brokenLinks) {
         for (Response brokenLink : brokenLinks) {
             StringBuilder builder = new StringBuilder();
@@ -27,17 +38,6 @@ public class Report {
             this.writer.flush();
         }
         finalize();
-    }
-
-    public static List<Response> getBrokenLinks(List<String> pages) throws Exception {
-        List<Response> brokenLinks = new ArrayList<Response>();
-        LinksFinder linksFinder = new LinksFinder();
-        for (String page : pages) {
-            List<String> links = linksFinder.getLinks(page);
-            BrokenLinksFinder brokenLinksFinder = new BrokenLinksFinder(links);
-            brokenLinks.addAll(brokenLinksFinder.getBrokenLinks());
-        }
-        return brokenLinks;
     }
 
     public static void printBrokenLinks(List<Response> brokenLinks, String outputFile) throws FileNotFoundException {
