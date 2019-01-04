@@ -45,7 +45,7 @@ public class BrokenLinksFinder {
     }
 
     private List<HttpCall> addHttpCallsToList() {
-        List<HttpCall> httpCalls = new ArrayList<HttpCall>();
+        List<HttpCall> httpCalls = new ArrayList<>();
 
         for (String link : links) {
             httpCalls.add(new HttpCall(link));
@@ -55,8 +55,8 @@ public class BrokenLinksFinder {
     }
 
     private Boolean isLinkBroken(Integer code) {
-        final Integer MIN_VALUE = 200;
-        final Integer MAX_VALUE = 399;
-        return ((code < MIN_VALUE) || (code > MAX_VALUE));
+        String str = code.toString();
+        String codeNumber = str.substring(0,1);
+        return ((!codeNumber.equals("2")) && (!codeNumber.equals("3")));
     }
 }

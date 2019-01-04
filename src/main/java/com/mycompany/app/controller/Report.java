@@ -15,7 +15,7 @@ public class Report {
     }
 
     public static List<Response> getBrokenLinks(List<String> pages) throws Exception {
-        List<Response> brokenLinks = new ArrayList<Response>();
+        List<Response> brokenLinks = new ArrayList<>();
         LinksFinder linksFinder = new LinksFinder();
         for (String page : pages) {
             List<String> links = linksFinder.getLinks(page);

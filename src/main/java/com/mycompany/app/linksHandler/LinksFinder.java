@@ -16,7 +16,7 @@ public class LinksFinder {
     }
 
     public List<String> getLinks(String htmlFileName) throws IOException {
-        List<String> links = new ArrayList<String>();
+        List<String> links = new ArrayList<>();
         openDocument(htmlFileName);
         Map<Attribute, Elements> mapTags = getTags();
         for (Map.Entry<Attribute, Elements> entry : mapTags.entrySet()) {

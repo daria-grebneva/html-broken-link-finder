@@ -36,11 +36,11 @@ public class HttpCall implements Callable<Response> {
                     .ignoreHttpErrors(true)
                     .timeout(connectionTimeout)
                     .execute();
-            return new Pair<Integer, String>(response.statusCode(), response.statusMessage());
+            return new Pair<>(response.statusCode(), response.statusMessage());
         } catch (SocketTimeoutException exception) {
-            return new Pair<Integer, String>(408, "Connection timed out");
+            return new Pair<>(408, "Connection timed out");
         } catch (Exception exception) {
-            return new Pair<Integer, String>(400, "Bad request");
+            return new Pair<>(400, "Bad request");
         }
     }
 }
