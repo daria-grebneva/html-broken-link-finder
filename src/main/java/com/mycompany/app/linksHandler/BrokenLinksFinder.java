@@ -12,6 +12,10 @@ public class BrokenLinksFinder {
         this.links = links;
     }
 
+    List<String> getLinks() {
+        return this.links;
+    }
+
     public List<Response> getBrokenLinks() throws InterruptedException, ExecutionException, FileNotFoundException, IOException {
         FileInputStream fis;
         Properties property = new Properties();
