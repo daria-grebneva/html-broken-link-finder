@@ -25,7 +25,11 @@ public class Response {
 
     @Override
     public boolean equals(Object arg) {
-        Response result = (Response)arg;
-        return (this.statusCode.equals(result.getStatusCode()) && this.statusMessage.equals(result.getStatusMessage()) && this.url.equals(result.getUrl()));
+        if (arg instanceof Response) {
+            Response result = (Response) arg;
+            return (this.statusCode.equals(result.getStatusCode()) && this.statusMessage.equals(result.getStatusMessage()) && this.url.equals(result.getUrl()));
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 }

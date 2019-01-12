@@ -32,8 +32,11 @@ public class BrokenLinksFinder {
 
     private List<String> links;
 
+    private final String STATUS_SUCCESS = "2";
+    private final String STATUS_REDIRECT = "3";
+
     private List<Response> addBrokenLinksToList(List<Future<Response>> httpCallsResult) throws InterruptedException, ExecutionException {
-        List<Response> brokenLinks = new ArrayList<Response>();
+        List<Response> brokenLinks = new ArrayList<>();
         for (final Future<Response> callResult : httpCallsResult) {
             Response httpResult = callResult.get();
             if (isLinkBroken(httpResult.getStatusCode())) {
@@ -57,6 +60,6 @@ public class BrokenLinksFinder {
     private Boolean isLinkBroken(Integer code) {
         String str = code.toString();
         String codeNumber = str.substring(0,1);
-        return ((!codeNumber.equals("2")) && (!codeNumber.equals("3")));
+        return ((!codeNumber.equals(STATUS_SUCCESS)) && (!codeNumber.equals(STATUS_REDIRECT)));
     }
 }

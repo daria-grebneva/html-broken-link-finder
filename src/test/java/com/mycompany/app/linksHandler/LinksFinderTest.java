@@ -17,10 +17,10 @@ public class LinksFinderTest {
     @org.junit.Test
     public void checkLinksArray() throws IOException {
         LinksFinder links = new LinksFinder();
-        List<String> returnValue = links.getLinks("https://www.ispringsolutions.com/products.html");
-        assertEquals(returnValue.get(0), "https://fonts.googleapis.com/css?family=Roboto:400,500,700");
-        assertEquals(returnValue.get(8), "https://www.ispringsolutions.com/ispring_bitrix/content/css/print.css");
-        assertEquals(returnValue.get(9), "https://www.ispringsolutions.com/images/favicon_1.ico");
-        assertEquals(returnValue.get(10), "https://www.ispringsolutions.com/ispring_bitrix/content/images/ispring-icon.png");
+        List<String> returnValue = links.getLinks("https://www.ispringsolutions.com/products");
+        assertEquals(returnValue.get(1), "https://fonts.googleapis.com/css?family=Roboto:400,500,700");
+        assertEquals(returnValue.get(9), "https://www.ispringsolutions.com/ispring_bitrix/content/css/print.css");
+        assertEquals(returnValue.get(10), "https://www.ispringsolutions.com/images/favicon_1.ico");
+        assertEquals(returnValue.get(11), "https://www.ispringsolutions.com/ispring_bitrix/content/images/ispring-icon.png");
     }
 }

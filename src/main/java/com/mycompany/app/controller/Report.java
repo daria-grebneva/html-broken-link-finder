@@ -37,16 +37,12 @@ public class Report {
             this.writer.write(builder.toString());
             this.writer.flush();
         }
-        finalize();
+        this.writer.close();
     }
 
     public static void printBrokenLinks(List<Response> brokenLinks, String outputFile) throws FileNotFoundException {
         Report writer = new Report(outputFile);
         writer.append(brokenLinks);
-    }
-
-    protected void finalize() {
-        this.writer.close();
     }
 
     private PrintWriter writer;

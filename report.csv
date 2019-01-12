@@ -1,6 +1,37 @@
-;400;Bad request
-https://itunes.apple.com/us/app/ispring-cloud/id833528017?mt=8;404;Not Found
-https://itunes.apple.com/us/app/ispring-cloud/id833528017?mt=8;404;Not Found
-https://www.linkedin.com/companies/ispring-solutions;400;Bad request
-https://www.linkedin.com/companies/ispring-solutions;400;Bad request
-;400;Bad request
+https://httpstat.us/100;502;Bad Gateway
+https://httpstat.us/101;502;Bad Gateway
+https://httpstat.us/102;502;Bad Gateway
+https://httpstat.us/400;400;Bad Request
+https://httpstat.us/401;401;Unauthorized
+https://httpstat.us/402;402;Payment Required
+https://httpstat.us/403;403;Forbidden
+https://httpstat.us/404;404;Not Found
+https://httpstat.us/405;405;Method Not Allowed
+https://httpstat.us/406;406;Not Acceptable
+https://httpstat.us/407;407;Proxy Authentication Required
+https://httpstat.us/408;408;Request Timeout
+https://httpstat.us/409;409;Conflict
+https://httpstat.us/410;410;Gone
+https://httpstat.us/411;411;Length Required
+https://httpstat.us/412;412;Precondition Failed
+https://httpstat.us/413;413;Request Entity Too Large
+https://httpstat.us/414;414;Request-URI Too Long
+https://httpstat.us/415;415;Unsupported Media Type
+https://httpstat.us/416;416;Requested Range Not Satisfiable
+https://httpstat.us/417;417;Expectation Failed
+https://httpstat.us/418;418;I'm a teapot
+https://httpstat.us/422;422;Unprocessable Entity
+https://httpstat.us/428;428;Precondition Required
+https://httpstat.us/429;429;Too Many Requests
+https://httpstat.us/431;431;Request Header Fields Too Large
+https://httpstat.us/451;451;Unavailable For Legal Reasons
+https://httpstat.us/500;500;Internal Server Error
+https://httpstat.us/501;501;Not Implemented
+https://httpstat.us/502;502;Bad Gateway
+https://httpstat.us/503;503;Service Unavailable
+https://httpstat.us/504;504;Gateway Timeout
+https://httpstat.us/505;505;HTTP Version Not Supported
+https://httpstat.us/511;511;Network Authentication Required
+https://httpstat.us/520;520;Web server is returning an unknown error
+https://httpstat.us/522;522;Connection timed out
+https://httpstat.us/524;524;A timeout occurred
