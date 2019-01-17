@@ -15,10 +15,12 @@ public class Reader {
             switch (state) {
                 case READ_FILES: {
                     this.pages.add(element);
+                    this.readerState = ReaderState.READ_FILES;
                     continue;
                 }
                 case READ_LINKS: {
                     this.pages.add(element);
+                    this.readerState = ReaderState.READ_LINKS;
                     continue;
                 }
                 case READ_OUT: {
@@ -40,6 +42,11 @@ public class Reader {
         return this.pages;
     }
 
+
+    public ReaderState getReaderState() {
+        return this.readerState;
+    }
+
     public String getOutputFile() {
         return outputFile;
     }
@@ -47,6 +54,8 @@ public class Reader {
     private List<String> pages = new ArrayList<String>();
 
     private String outputFile;
+
+    private ReaderState readerState = ReaderState.ERROR;
 
     private ReaderState changeAutomateState(String element) {
         if (element.equals("--files")) {

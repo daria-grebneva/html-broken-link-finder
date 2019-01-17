@@ -1,5 +1,6 @@
 package com.mycompany.app.linksHandler;
 
+import com.mycompany.app.controller.ReaderState;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -15,9 +16,14 @@ public class LinksFinder {
     public LinksFinder() {
     }
 
-    public List<String> getLinks(String htmlFileName) throws IOException {
+    public List<String> getLinks(String htmlFileName, ReaderState state) throws IOException {
         List<String> links = new ArrayList<>();
-        openDocument(htmlFileName);
+
+        if (state == ReaderState.READ_FILES) {
+            openDocument(htmlFileName);
+        } else {
+            connect(htmlFileName);
+        }
         Map<Attribute, Elements> mapTags = getTags();
         for (Map.Entry<Attribute, Elements> entry : mapTags.entrySet()) {
             for (Element tag : entry.getValue()) {
@@ -35,20 +41,20 @@ public class LinksFinder {
         put(Attribute.SRC, "src");
     }};
 
+    private void connect(String link) throws IOException {
+        FileInputStream fis;
+        Properties property = new Properties();
+        fis = new FileInputStream("src/main/java/resources/config.properties");
+        property.load(fis);
+        Integer connectionTimeout = new Integer(property.getProperty("connectionTimeout"));
+        Connection connection = Jsoup.connect(link)
+                .timeout(connectionTimeout)
+                .userAgent(property.getProperty("userAgent"));
+        document = connection.get();
+    }
+
     private void openDocument(String link) throws IOException {
-        try {
-            FileInputStream fis;
-            Properties property = new Properties();
-            fis = new FileInputStream("src/main/java/resources/config.properties");
-            property.load(fis);
-            Integer connectionTimeout = new Integer(property.getProperty("connectionTimeout"));
-            Connection connection = Jsoup.connect(link)
-                    .timeout(connectionTimeout)
-                    .userAgent(property.getProperty("userAgent"));
-            document = connection.get();
-        } catch (Exception exc) {
-            document = Jsoup.parse(new File(link), null);
-        }
+        document = Jsoup.parse(new File(link), null);
     }
 
     private Map<Attribute, Elements> getTags() {
