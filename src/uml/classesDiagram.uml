@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="61.125" y="245.5">com.mycompany.app.controller.HttpCall</node>
+    <node x="213.41944444444437" y="0.0">com.mycompany.app.controller.Response</node>
+    <node x="779.0837962962962" y="851.0">com.mycompany.app.App</node>
+    <node x="429.0" y="425.0">com.mycompany.app.linksHandler.LinksFinder</node>
+    <node x="727.2944444444444" y="235.0">com.mycompany.app.controller.ReaderState</node>
+    <node x="734.0" y="414.0">com.mycompany.app.controller.Reader</node>
+    <node x="490.9171296296296" y="257.0">com.mycompany.app.linksHandler.Attribute</node>
+    <node x="0.0" y="403.0">com.mycompany.app.linksHandler.BrokenLinksFinder</node>
+    <node x="254.83379629629633" y="660.0">com.mycompany.app.controller.Report</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.mycompany.app.linksHandler.BrokenLinksFinder" target="com.mycompany.app.controller.Response">
+      <point x="136.0" y="-103.5" />
+      <point x="340.0" y="383.0" />
+      <point x="315.41944444444437" y="383.0" />
+      <point x="0.0" y="92.5" />
+    </edge>
+    <edge source="com.mycompany.app.controller.Report" target="com.mycompany.app.controller.Response">
+      <point x="-31.166666666666742" y="-70.5" />
+      <point x="410.6671296296296" y="640.0" />
+      <point x="418.5" y="640.0" />
+      <point x="418.5" y="215.0" />
+      <point x="356.2194444444444" y="215.0" />
+      <point x="40.80000000000001" y="92.5" />
+    </edge>
+    <edge source="com.mycompany.app.controller.Report" target="com.mycompany.app.linksHandler.LinksFinder">
+      <point x="31.166666666666572" y="-70.5" />
+      <point x="473.0004629629629" y="640.0" />
+      <point x="500.0" y="640.0" />
+      <point x="-71.0" y="81.5" />
+    </edge>
+    <edge source="com.mycompany.app.App" target="com.mycompany.app.controller.Reader">
+      <point x="-20.375" y="-26.0" />
+      <point x="840.2087962962962" y="826.0" />
+      <point x="873.1282407407407" y="826.0" />
+      <point x="873.1282407407407" y="640.0" />
+      <point x="806.0" y="640.0" />
+      <point x="-72.0" y="92.5" />
+    </edge>
+    <edge source="com.mycompany.app.controller.HttpCall" target="com.mycompany.app.controller.Response">
+      <point x="58.75" y="-48.5" />
+      <point x="237.375" y="215.0" />
+      <point x="274.61944444444435" y="215.0" />
+      <point x="-40.80000000000001" y="92.5" />
+    </edge>
+    <edge source="com.mycompany.app.App" target="com.mycompany.app.controller.Response">
+      <point x="61.125" y="-26.0" />
+      <point x="921.7087962962962" y="826.0" />
+      <point x="1032.5" y="826.0" />
+      <point x="1032.5" y="205.0" />
+      <point x="397.0194444444444" y="205.0" />
+      <point x="81.60000000000002" y="92.5" />
+    </edge>
+    <edge source="com.mycompany.app.controller.Reader" target="com.mycompany.app.controller.ReaderState">
+      <point x="-72.0" y="-92.5" />
+      <point x="806.0" y="383.0" />
+      <point x="796.6694444444444" y="383.0" />
+      <point x="13.875" y="59.0" />
+    </edge>
+    <edge source="com.mycompany.app.linksHandler.BrokenLinksFinder" target="com.mycompany.app.controller.HttpCall">
+      <point x="0.0" y="-103.5" />
+      <point x="204.0" y="383.0" />
+      <point x="237.375" y="383.0" />
+      <point x="58.75" y="48.5" />
+    </edge>
+    <edge source="com.mycompany.app.linksHandler.LinksFinder" target="com.mycompany.app.linksHandler.Attribute">
+      <point x="-35.5" y="-81.5" />
+      <point x="535.5" y="383.0" />
+      <point x="537.9171296296296" y="383.0" />
+      <point x="0.0" y="37.0" />
+    </edge>
+    <edge source="com.mycompany.app.linksHandler.LinksFinder" target="com.mycompany.app.controller.ReaderState">
+      <point x="106.5" y="-81.5" />
+      <point x="677.5" y="373.0" />
+      <point x="741.1694444444444" y="373.0" />
+      <point x="-41.625" y="59.0" />
+    </edge>
+    <edge source="com.mycompany.app.controller.Report" target="com.mycompany.app.controller.ReaderState">
+      <point x="155.83333333333331" y="-70.5" />
+      <point x="597.6671296296297" y="640.0" />
+      <point x="723.5" y="640.0" />
+      <point x="723.5" y="383.0" />
+      <point x="768.9194444444444" y="383.0" />
+      <point x="-13.875" y="59.0" />
+    </edge>
+    <edge source="com.mycompany.app.controller.Report" target="com.mycompany.app.linksHandler.BrokenLinksFinder">
+      <point x="-155.83333333333348" y="-70.5" />
+      <point x="286.00046296296284" y="640.0" />
+      <point x="102.0" y="640.0" />
+      <point x="-102.0" y="103.5" />
+    </edge>
+    <edge source="com.mycompany.app.App" target="com.mycompany.app.controller.Report">
+      <point x="-61.125" y="-26.0" />
+      <point x="799.4587962962962" y="826.0" />
+      <point x="441.8337962962963" y="826.0" />
+      <point x="0.0" y="70.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.30000000000000016" x="520.2500000000002" y="504.4085127201566" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
