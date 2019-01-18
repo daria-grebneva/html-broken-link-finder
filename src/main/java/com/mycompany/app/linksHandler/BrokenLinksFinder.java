@@ -16,7 +16,7 @@ public class BrokenLinksFinder {
         return this.links;
     }
 
-    public List<Response> getBrokenLinks() throws InterruptedException, ExecutionException, FileNotFoundException, IOException {
+    public List<Response> getBrokenLinks() throws InterruptedException, ExecutionException, IOException {
         FileInputStream fis;
         Properties property = new Properties();
         fis = new FileInputStream("src/main/java/resources/config.properties");

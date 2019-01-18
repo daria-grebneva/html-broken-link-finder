@@ -38,7 +38,8 @@ public class HttpCall implements Callable<Response> {
                     .execute();
             return new Pair<>(response.statusCode(), response.statusMessage());
         } catch (SocketTimeoutException exception) {
-            return new Pair<>(408, "Connection timed out");
+            System.out.println("522, Connection time out!");
+            return new Pair<>(522, "Connection time out!");
         } catch (Exception exception) {
             return new Pair<>(400, "Bad request");
         }
