@@ -9,6 +9,7 @@ import org.jsoup.select.Elements;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
@@ -19,11 +20,17 @@ public class LinksFinder {
     public List<String> getLinks(String htmlFileName, ReaderState state) throws IOException {
         List<String> links = new ArrayList<>();
 
-        if (state == ReaderState.READ_FILES) {
-            openDocument(htmlFileName);
-        } else {
-            connect(htmlFileName);
+        switch (state) {
+            case READ_FILES:
+                openDocument(htmlFileName);
+                break;
+            case READ_LINKS:
+                connect(htmlFileName);
+                break;
+            case ERROR:
+                throw new FileNotFoundException();
         }
+
         Map<Attribute, Elements> mapTags = getTags();
         for (Map.Entry<Attribute, Elements> entry : mapTags.entrySet()) {
             for (Element tag : entry.getValue()) {
