@@ -4,6 +4,7 @@ import com.mycompany.app.linksHandler.BrokenLinksFinder;
 import com.mycompany.app.linksHandler.LinksFinder;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +15,10 @@ public class Report {
     }
 
     public void append(List<Response> brokenLinks) {
-        try {
+        try (PrintWriter writer = new PrintWriter(new File(filename))){
             if (filename == null || filename.isEmpty()) {
                 return;
             }
-            this.writer = new PrintWriter(new File(filename));
-
             for (Response brokenLink : brokenLinks) {
                 StringBuilder builder = new StringBuilder();
                 builder.append(brokenLink.getUrl());
@@ -28,15 +27,11 @@ public class Report {
                 builder.append(';');
                 builder.append(brokenLink.getStatusMessage());
                 builder.append('\n');
-                this.writer.write(builder.toString());
-                this.writer.flush();
+                writer.write(builder.toString());
+                writer.flush();
             }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        } finally {
-            if (this.writer != null) {
-                this.writer.close();
-            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
@@ -56,6 +51,5 @@ public class Report {
         writer.append(brokenLinks);
     }
 
-    private PrintWriter writer;
     private String filename;
 }
